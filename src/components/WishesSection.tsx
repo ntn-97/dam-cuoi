@@ -19,7 +19,7 @@ const DEFAULT_WISHES: Wish[] = [
     timestamp: '06:39:17 09/01/2026',
   },
   {
-    name: 'EM Bảo',
+    name: 'Em Bảo',
     message: 'Chúc anh chị trăm năm hạnh phúc, sớm có tin vui :D',
     timestamp: '06:38:50 09/01/2026',
   },
