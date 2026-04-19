@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: rgb(35, 56, 30);
+  --color-primary-light: rgb(60, 90, 50);
+  --color-primary-lighter: rgb(90, 120, 75);
+  --color-accent: rgb(180, 150, 80);
+  --color-accent-light: rgb(210, 185, 120);
+  --color-cream: rgb(245, 243, 237);
+  --color-cream-dark: rgb(235, 230, 220);
+  --color-text-dark: rgb(45, 45, 40);
+  --color-text-light: rgb(120, 115, 100);
+  --color-white: rgb(255, 255, 255);
+  --color-red-envelope: rgb(200, 50, 30);
+  --color-gold: rgb(212, 175, 55);
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-script: 'Great Vibes', cursive;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-lighter);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Falling leaves animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(22vh) translateX(15px) rotate(90deg) scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(45vh) translateX(-10px) rotate(180deg) scale(0.9);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(68vh) translateX(20px) rotate(270deg) scale(0.85);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) translateX(5px) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes fall2 {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(45deg) scale(0.9);
+    opacity: 0.9;
+  }
+  30% {
+    transform: translateY(25vh) translateX(-20px) rotate(135deg) scale(0.85);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateY(55vh) translateX(15px) rotate(225deg) scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-5px) rotate(405deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(180, 150, 80, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(180, 150, 80, 0.6);
+  }
+}
+
+@keyframes envelope-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.15);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes countdown-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes equalizer-bar {
+  0%, 100% {
+    height: 4px;
+  }
+  25% {
+    height: 14px;
+  }
+  50% {
+    height: 8px;
+  }
+  75% {
+    height: 18px;
+  }
+}
+
+/* Leaf SVG color overrides */
+.leaf-decoration svg path {
+  fill: var(--color-primary);
+  opacity: 0.15;
+}
+
+/* Section divider */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+}
